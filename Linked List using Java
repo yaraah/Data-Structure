@@ -1,0 +1,52 @@
+class LinkedList
+{
+  Node head;
+  class Node 
+  {
+    int Data;
+    Node Next;
+    public Node(int NewData)
+    {
+      Data=NewData;
+      Next=null;
+    }
+  }
+  public void push(int NewD)
+  {
+    Node NewNode=new Node(NewD);
+    NewNode.Next=head;
+    head=NewNode;
+  }
+  public void insertAfter(Node PrevNode,int NewD)
+  {
+    Node NewNode=new Node(NewD);
+    if(PrevNode==null)
+      System.out.println("Not Allowed to be Null");
+    NewNode.Next=PrevNode.Next;
+    PrevNode.Next=NewNode;
+  }
+  public void Append(int NewD)
+  {
+    Node NewNode=new Node(NewD);
+    if(head==null)
+    {
+      head=NewNode;
+    }
+    NewNode.Next=null;
+    Node Last=head;
+    while(Last!=null)
+    {
+      Last=Last.Next;
+    }
+    Last.Next=NewNode;
+  }
+  public void PrintAll()
+  {
+    Node N=head;
+    while(N!=null)
+    {
+      System.out.println(N.Data);
+      N=N.Next;
+    }
+  }
+}
